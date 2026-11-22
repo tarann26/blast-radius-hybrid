@@ -1,0 +1,6 @@
+{
+ "tests/test_executor.py::TestExecutor": 1.368,
+ "tests/test_lineage.py::TestLineage": 0.0,
+ "tests/test_optimizer.py::TestOptimizer": 0.033,
+ "tests/test_sqlglotc.py::TestSQLGlotC": 0.023
+}

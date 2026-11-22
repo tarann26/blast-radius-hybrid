@@ -1,0 +1,1 @@
+["", "bigquery", "clickhouse", "duckdb", "fakedialect", "hive", "mysql", "python", "snowflake", "spark2"]

@@ -1,0 +1,242 @@
+{
+ "tests": {
+  "tests/test_executor.py::TestExecutor::test_execute_tpcds": [
+   [
+    "optimizer/tpc-ds/tpc-ds.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_executor.py::TestExecutor::test_execute_tpch": [
+   [
+    "optimizer/tpc-h/tpc-h.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_executor.py::TestExecutor::test_optimized_tpch": [
+   [
+    "optimizer/tpc-h/tpc-h.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_annotate_funcs": [
+   [
+    "optimizer/annotate_functions.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_annotate_types": [
+   [
+    "optimizer/annotate_types.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_canonicalize": [
+   [
+    "optimizer/canonicalize.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_canonicalize_internal_names": [
+   [
+    "optimizer/canonicalize_internal_names.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_eliminate_ctes": [
+   [
+    "optimizer/eliminate_ctes.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_eliminate_joins": [
+   [
+    "optimizer/eliminate_joins.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_eliminate_subqueries": [
+   [
+    "optimizer/eliminate_subqueries.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_isolate_table_selects": [
+   [
+    "optimizer/isolate_table_selects.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_merge_subqueries": [
+   [
+    "optimizer/merge_subqueries.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_normalize": [
+   [
+    "optimizer/normalize.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_normalize_identifiers": [
+   [
+    "optimizer/normalize_identifiers.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_optimize": [
+   [
+    "optimizer/optimizer.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_optimize_joins": [
+   [
+    "optimizer/optimize_joins.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_pushdown_cte_alias_columns": [
+   [
+    "optimizer/pushdown_cte_alias_columns.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_pushdown_predicates": [
+   [
+    "optimizer/pushdown_predicates.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_pushdown_projection": [
+   [
+    "optimizer/pushdown_projections.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_qualify_columns": [
+   [
+    "optimizer/qualify_columns.sql",
+    "pairs"
+   ],
+   [
+    "optimizer/qualify_columns_ddl.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_qualify_columns__invalid": [
+   [
+    "optimizer/qualify_columns__invalid.sql",
+    "lines"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_qualify_columns__with_invisible": [
+   [
+    "optimizer/qualify_columns__with_invisible.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_qualify_tables": [
+   [
+    "optimizer/qualify_tables.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_quote_identifiers": [
+   [
+    "optimizer/quote_identifiers.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_simplify": [
+   [
+    "optimizer/simplify.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_tpcds": [
+   [
+    "optimizer/tpc-ds/tpc-ds.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_tpch": [
+   [
+    "optimizer/tpc-h/tpc-h.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_optimizer.py::TestOptimizer::test_unnest_subqueries": [
+   [
+    "optimizer/unnest_subqueries.sql",
+    "pairs"
+   ]
+  ],
+  "tests/test_serde.py::TestSerde::test_serde": [
+   [
+    "identity.sql",
+    "lines"
+   ]
+  ],
+  "tests/test_transpile.py::TestTranspile::test_identity": [
+   [
+    "identity.sql",
+    "lines"
+   ]
+  ],
+  "tests/test_transpile.py::TestTranspile::test_partial": [
+   [
+    "partial.sql",
+    "lines"
+   ]
+  ],
+  "tests/test_transpile.py::TestTranspile::test_pretty": [
+   [
+    "pretty.sql",
+    "pairs"
+   ]
+  ]
+ },
+ "counts": {
+  "identity.sql": 980,
+  "optimizer/annotate_functions.sql": 1973,
+  "optimizer/annotate_types.sql": 113,
+  "optimizer/canonicalize.sql": 49,
+  "optimizer/canonicalize_internal_names.sql": 72,
+  "optimizer/eliminate_ctes.sql": 6,
+  "optimizer/eliminate_joins.sql": 40,
+  "optimizer/eliminate_subqueries.sql": 28,
+  "optimizer/isolate_table_selects.sql": 8,
+  "optimizer/merge_subqueries.sql": 147,
+  "optimizer/normalize.sql": 17,
+  "optimizer/normalize_identifiers.sql": 32,
+  "optimizer/optimize_joins.sql": 21,
+  "optimizer/optimizer.sql": 94,
+  "optimizer/pushdown_cte_alias_columns.sql": 6,
+  "optimizer/pushdown_predicates.sql": 58,
+  "optimizer/pushdown_projections.sql": 86,
+  "optimizer/qualify_columns.sql": 387,
+  "optimizer/qualify_columns__invalid.sql": 37,
+  "optimizer/qualify_columns__with_invisible.sql": 9,
+  "optimizer/qualify_columns_ddl.sql": 10,
+  "optimizer/qualify_tables.sql": 81,
+  "optimizer/quote_identifiers.sql": 10,
+  "optimizer/simplify.sql": 651,
+  "optimizer/tpc-ds/tpc-ds.sql": 99,
+  "optimizer/tpc-h/tpc-h.sql": 22,
+  "optimizer/unnest_subqueries.sql": 129,
+  "partial.sql": 7,
+  "pretty.sql": 30
+ },
+ "also": {
+  "tests/test_executor.py::TestExecutor::test_execute_tpcds": [
+   "optimizer/tpc-h/tpc-h.sql"
+  ],
+  "tests/test_executor.py::TestExecutor::test_execute_tpch": [
+   "optimizer/tpc-ds/tpc-ds.sql"
+  ],
+  "tests/test_executor.py::TestExecutor::test_optimized_tpch": [
+   "optimizer/tpc-ds/tpc-ds.sql"
+  ]
+ }
+}
