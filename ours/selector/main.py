@@ -159,6 +159,13 @@ def main():
                     raise ValueError("unparsed patch or repeated file section")
                 found = finder.analyze(changes)
                 key_note = ""
+                if HYBRID_MAIN and not found.unknown:
+                    # the state comparison only narrows this selector's own plan: skip it for a
+                    # commit the engine will answer (judged on the plan without it)
+                    first = policy.plan_commit(cid, changes, found, maps, map_to_number, seconds_of, unknown_numbers)
+                    if not _risky(first, commit_dir, set(number_of.values())):
+                        plans.append(first)
+                        continue
                 if not found.unknown and any(getattr(f, "keyrec_sites", None) or getattr(f, "modrec_sites", None)
                                              or getattr(f, "classrec_sites", None) for f in found.files) \
                         and time.monotonic() - START < total_limit * 0.3 \

@@ -5,7 +5,8 @@ Test selection for sqlglot at eb11aec4be8cb2122afe713a4816662c3f0fb2fa: for each
 
 Two engines from the team run in one container:
 
-- `ours/` (the checking selector) parses and analyses every commit first. It answers and
+- `ours/` (the checking selector) parses and analyses every commit first (its state comparison,
+  which only narrows its own plans, runs only for the commits it keeps). It answers and
   verifies the risky ones itself: edits that can leave state behind for later tests, copy-only
   edits, import-time and module-level edits, new, deleted or special files, unknown changes, and a
   class-level name that gains or loses its annotation. It also answers any commit where its own
@@ -24,7 +25,7 @@ Local results (simulated seconds, misses):
 | set | hybrid | `ours` alone | engine alone |
 | --- | ---: | ---: | ---: |
 | kit sample (30) | 94.351, 0 | 94.4, 0 | 94.351, 0 |
-| 29 labelled sets (1,043 commits) | 6,200, 0 | 7,092, 0 | 7,765, 6 |
+| 29 labelled sets (1,043 commits) | 6,197, 0 | 7,092, 0 | 7,765, 6 |
 | val9 in the container (60) | 194.957, 0 | 210.5, 0 | 233.8, 0 |
 
-CPU over the 29 sets: hybrid 644 s, `ours` alone 593 s, engine alone about 497 s.
+CPU over the 29 sets: hybrid 545 s, `ours` alone 593 s, engine alone about 497 s.
