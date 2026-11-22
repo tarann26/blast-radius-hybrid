@@ -209,6 +209,21 @@ def main():
                 del delegated[p.cid]
         if rival:
             log(f"hybrid: {len(rival)} commits also verified here (planned cost below the engine's)")
+        # A plan that runs nothing here has an exact cost already: keep it where it beats the
+        # engine's answer (no verification needed).
+        exact = 0
+        for p in plans:
+            chosen = delegated.get(p.cid)
+            if chosen is None or p.verify or p.leak_check:
+                continue
+            own = sorted(p.final_tests())
+            own_cost = pack(own, ms_of, fast=True)[1] / 1000.0 if own else 0.0
+            engine_cost = pack(sorted(chosen), ms_of, fast=True)[1] / 1000.0
+            if own_cost < engine_cost:
+                delegated[p.cid] = own
+                exact += 1
+        if exact:
+            log(f"hybrid: {exact} commits keep this selector's exact plan (cheaper than the engine's)")
         to_verify = [p for p in plans if p.cid not in delegated]
         policy.verify_plans(to_verify, ROOT, TMP, deadline, log, id_of, number_of, seconds_of)
         for cid, chosen in delegated.items():
