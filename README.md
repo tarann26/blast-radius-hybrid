@@ -7,7 +7,7 @@ Two engines from the team run in one container:
 
 - `ours/` (the checking selector) parses and analyses every commit first (its state comparison,
   which only narrows its own plans, runs only for the commits it keeps). It answers and
-  verifies the risky ones itself: edits that can leave state behind for later tests, copy-only
+  verifies the risky ones itself: edits whose state check finds state left behind for later tests, copy-only
   edits, import-time and module-level edits, new, deleted or special files, unknown changes, and a
   class-level name that gains or loses its annotation. It also answers any commit where its own
   plan is expected to cost well under the other engine's answer (below 60 % of it, by 0.5 s), and

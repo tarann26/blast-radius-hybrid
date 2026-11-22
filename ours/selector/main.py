@@ -47,12 +47,25 @@ def log(message: str):
     print(f"[{time.monotonic() - START:6.2f}] {message}", file=sys.stderr, flush=True)
 
 
+# A blanket "may leak" answer (every test, no state check run) costs about 20 s over the engine's
+# answer and never caught a miss of the engine on the labelled sets: the engine answers it.
+BLANKET_TO_ENGINE = os.environ.get("BR_HYBRID_BLANKET", "1") == "1"
+STRONG_PARTS = ("import check", "copy-only", "unknown change", "analysis failed", "unparsed")
+
+
+def _blanket_leak(plan) -> bool:
+    note = plan.note or ""
+    return (BLANKET_TO_ENGINE and note.startswith("may leak") and not getattr(plan, "leak_check", False)
+            and not any(part in note for part in STRONG_PARTS))
+
+
 def _risky(plan, commit_dir, everything) -> bool:
     note = plan.note or ""
-    if not note or note.startswith(RISKY_NOTES) or any(part in note for part in RISKY_PARTS):
-        return True
-    if getattr(plan, "leak_check", False) or (plan.include and set(plan.include) >= everything):
-        return True
+    if not _blanket_leak(plan):
+        if not note or note.startswith(RISKY_NOTES) or any(part in note for part in RISKY_PARTS):
+            return True
+        if getattr(plan, "leak_check", False) or (plan.include and set(plan.include) >= everything):
+            return True
     try:
         text = open(os.path.join(commit_dir, plan.cid + ".patch"), "rb").read().decode("utf-8", "replace")
     except OSError:
